@@ -1,5 +1,6 @@
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Iterator;
 import java.util.Set;
 
 public class Employee {
@@ -65,10 +66,12 @@ public class Employee {
     public String toString() {
         return employeeName;
     }
+        
     
-    /*public static void printSalaryReport(Set<Employee> employeeCollection) throws IOException
+    public static void printSalaryReport(Set<Employee> employeeCollection) throws IOException
     {
-        FileWriter writer = new FileWriter("E:\\employee.csv");
+        FileWriter writer = new FileWriter("employee.csv");
+                
         writer.append("Name");
         writer.append(',');
         writer.append("HourlySalary");
@@ -77,10 +80,11 @@ public class Employee {
         writer.append(',');
         writer.append("Weekly Pay");
         writer.append('\n');
-        for (int i = 0; i < employeeCollection.size(); i++) {
-
-        }
+            
+        /*for (int i = 0; i < employeeCollection.size(); i++) {
+            
+        }*/
         writer.close();
-    }*/
+    }
     
 }
