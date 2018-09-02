@@ -80,7 +80,14 @@ public class Employee {
         writer.append(',');
         writer.append("Weekly Pay");
         writer.append('\n');
-            
+        
+        //Iterator attempt
+        /*Iterator<Employee> it = employeeCollection.iterator();
+        while(it.hasNext()) {
+            System.out.println(it.hasNext());            
+        }*/
+        
+        //Loop through employees attempt
         /*for (int i = 0; i < employeeCollection.size(); i++) {
             
         }*/
