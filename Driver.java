@@ -6,22 +6,33 @@ import java.io.PrintWriter;
 import java.util.HashSet;
 import java.util.Iterator;
 
+/**
+ * 
+ * @author John Domine, U07998397
+ * 
+ */
+
 public class Driver {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException { //Throws IOException because of the FileOutputStream method
+        //Initialize Scanner to take user input
         Scanner scan = new Scanner(System.in);
+        //Initialize HashSet to store Employee objects
         Set<Employee> employeeCollection = new HashSet<Employee>();
         
+        //Instance variables for employee
         String employeeName;
         float hourlySalary;
         int hoursWorked;
         float weeklyPay;
         
+        //Instance variables to initialize for loop
         int numEmployees;
         int employeeCount = 1;
         
         System.out.println("How many employees are there?");
-        numEmployees= scan.nextInt();
+        numEmployees = scan.nextInt();
         
+        //Throw custom exception if the user input is less than or equal to 0
         if (numEmployees <= 0) 
         {
             try 
@@ -54,25 +65,26 @@ public class Driver {
                 System.out.println("How many hours has Employee " + employeeCount + " worked?");
                 hoursWorked = scan.nextInt(); //Take in user input for hours worked
         
-                weeklyPay = (hourlySalary * hoursWorked);
+                weeklyPay = (hourlySalary * hoursWorked); //Calculates the weeklyPay
         
                 Employee employee = new Employee(employeeName, hourlySalary, hoursWorked, weeklyPay); //Store employee info with corresponding employee count
                 employeeCollection.add(employee); //Add current employee to the Employee Set
                 employeeCount++; //Increment employee count
-                //Go to next employee
+                //Go to next employee until loop ends
             }
          }
         
         
        scan.close();
        
-       //Shows what employees have been collected in the Employee Set
-       System.out.println(employeeCollection);
-       
+       //Shows all of the data that has been collected in the Employee Set in the console
+       System.out.println("Employee Information: " + employeeCollection);
+      
        //Tests the printSalaryReport method 
        printSalaryReport(employeeCollection);
     }
 
+    //Method to print out all of the created Employee objects and their information in a new text file labeled "employee.csv"
     public static void printSalaryReport(Set<Employee> employeeCollection) throws IOException
     {
         //Create file to be exported
@@ -89,12 +101,11 @@ public class Driver {
         pw.print(',');
         pw.print("Weekly Pay");
 
-        //Iterate through the set
-        //TODO: Find out how to add the data inside the employee
+        //Iterate through the set using the Iterator import
         Iterator<Employee> it = employeeCollection.iterator();
         while(it.hasNext()) {
-            pw.println("");
-            pw.println(it.next());            
+            pw.println(); //Print out line to separate 
+            pw.println(it.next()); 
         }
         
         pw.close();

@@ -1,4 +1,9 @@
-
+/**
+ * 
+ * @author John Domine, U07998397
+ * 
+ */
+ 
 public class Employee {
     //Instance variables
     private String employeeName;
@@ -6,7 +11,16 @@ public class Employee {
     private int hoursWorked;
     private float weeklyPay;
     
-  //Create an Employee object
+    //Default constructor
+    public Employee()
+    {
+        this.employeeName = "Bob";
+        this.hourlySalary = 0.0f;
+        this.hoursWorked = 0;
+        this.weeklyPay = 0.0f;
+    }
+        
+    //Parameterized constructor
     public Employee(String employeeName, float hourlySalary, int hoursWorked, float weeklyPay) 
     {
         this.employeeName = employeeName;
@@ -14,7 +28,7 @@ public class Employee {
         this.hoursWorked = hoursWorked;
         this.weeklyPay = weeklyPay;
     }
-        
+    
     //Getter methods
     public String getEmployeeName()
     {
@@ -57,10 +71,12 @@ public class Employee {
         this.weeklyPay = weeklyPay;
     }
     
-    //@Override
+    //@Override method
     @Override
     public String toString() {
-        return employeeName;
+        //Return the employee object's information! 
+        //Side Note: Was stuck for the longest time because I was only returning employeeName and none of the other variables 
+        return employeeName + ',' + hourlySalary + ',' + hoursWorked + ',' + weeklyPay;
     }
         
     

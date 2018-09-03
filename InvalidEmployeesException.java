@@ -1,3 +1,8 @@
+/**
+ * 
+ * @author John Domine, U07998397
+ * 
+ */
 
 //Eclipse IDE recommended @SuppressWarnings to ignore the Serial warning 
 @SuppressWarnings("serial")
