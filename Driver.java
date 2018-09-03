@@ -1,9 +1,13 @@
 import java.util.Scanner;
 import java.util.Set;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.HashSet;
+import java.util.Iterator;
 
 public class Driver {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Scanner scan = new Scanner(System.in);
         Set<Employee> employeeCollection = new HashSet<Employee>();
         
@@ -64,6 +68,35 @@ public class Driver {
        
        //Shows what employees have been collected in the Employee Set
        System.out.println(employeeCollection);
+       
+       //Tests the printSalaryReport method 
+       printSalaryReport(employeeCollection);
+    }
 
+    public static void printSalaryReport(Set<Employee> employeeCollection) throws IOException
+    {
+        //Create file to be exported
+        FileOutputStream fos = new FileOutputStream("employee.csv");
+        //Allow file to be written to 
+        PrintWriter pw = new PrintWriter(fos);
+        
+        //Headers separated by commas 
+        pw.print("Name");
+        pw.print(',');
+        pw.print("Hourly Salary");
+        pw.print(',');
+        pw.print("Hours Worked");
+        pw.print(',');
+        pw.print("Weekly Pay");
+
+        //Iterate through the set
+        //TODO: Find out how to add the data inside the employee
+        Iterator<Employee> it = employeeCollection.iterator();
+        while(it.hasNext()) {
+            pw.println("");
+            pw.println(it.next());            
+        }
+        
+        pw.close();
     }
 }

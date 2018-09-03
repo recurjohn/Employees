@@ -1,7 +1,3 @@
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.Iterator;
-import java.util.Set;
 
 public class Employee {
     //Instance variables
@@ -68,30 +64,5 @@ public class Employee {
     }
         
     
-    public static void printSalaryReport(Set<Employee> employeeCollection) throws IOException
-    {
-        FileWriter writer = new FileWriter("employee.csv");
-                
-        writer.append("Name");
-        writer.append(',');
-        writer.append("HourlySalary");
-        writer.append(',');
-        writer.append("Hours Worked");
-        writer.append(',');
-        writer.append("Weekly Pay");
-        writer.append('\n');
-        
-        //Iterator attempt
-        /*Iterator<Employee> it = employeeCollection.iterator();
-        while(it.hasNext()) {
-            System.out.println(it.hasNext());            
-        }*/
-        
-        //Loop through employees attempt
-        /*for (int i = 0; i < employeeCollection.size(); i++) {
-            
-        }*/
-        writer.close();
-    }
     
 }
